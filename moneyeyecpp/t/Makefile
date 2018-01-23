@@ -380,6 +380,7 @@ BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
+CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
 CXXDEPMODE = depmode=gcc3
@@ -390,7 +391,9 @@ DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
+EGREP = /bin/grep -E
 EXEEXT = 
+GREP = /bin/grep
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -411,6 +414,7 @@ PACKAGE_TARNAME = moneyeyecpp
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
+POW_LIB = 
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = 
@@ -469,7 +473,7 @@ top_builddir = ..
 top_srcdir = ..
 ACLOCAL_AMFLAGS = -I m4
 basic_test_SOURCES = 001-basicTest.cpp
-AM_CXXFLAGS = $(BOOST_CPPFLAGS)
+AM_CXXFLAGS = $(BOOST_CPPFLAGS) -std=c++11  -fprofile-arcs -ftest-coverage
 all: all-am
 
 .SUFFIXES:

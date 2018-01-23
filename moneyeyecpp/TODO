@@ -1,0 +1,75 @@
+AC_CHECK_FUNCS([localeconv]) wanted by: src/lib/cJSON.c:242
+AC_CHECK_FUNCS([memset])     wanted by: src/lib/cJSON.c:208
+AC_CHECK_HEADERS([float.h])  wanted by: src/lib/cJSON.c:44
+AC_CHECK_HEADERS([limits.h]) wanted by: src/lib/cJSON.c:45
+AC_CHECK_HEADERS([locale.h]) wanted by: src/lib/cJSON.c:49
+AC_CHECK_HEADERS([stddef.h]) wanted by: src/lib/cJSON.h:36
+AC_CHECK_HEADERS([stdlib.h]) wanted by: src/main.cpp:26
+AC_CHECK_HEADERS([string.h]) wanted by: src/lib/cJSON.c:40
+AC_CHECK_HEADERS([unistd.h]) wanted by: src/main.cpp:24
+AC_CHECK_HEADER_STDBOOL      wanted by: src/lib/cJSON.c:277
+AC_FUNC_MALLOC               wanted by: src/lib/cJSON.c:132
+AC_FUNC_REALLOC              wanted by: src/lib/cJSON.c:140
+AC_FUNC_STRTOD               wanted by: src/lib/cJSON.c:315
+AC_TYPE_SIZE_T               wanted by: src/lib/cJSON.c:67
+
+
+
+- Create Money.h and Money.cpp under src
+ (From bootstrap)
+  (added Sun Jan 21 00:57:27 2018, completed on Sun Jan 21 01:17:49 2018, priority high)
+
+- Test for Class existence and instantiation
+ (From bootstrap)
+  (added Sun Jan 21 00:57:58 2018, completed on Sun Jan 21 01:18:21 2018, priority high)
+
+- Implement the class Money
+ (With simple constructor)
+  (added Sun Jan 21 00:58:43 2018, completed on Sun Jan 21 02:18:59 2018, priority high)
+
+- Test: Money must be instantiated with the
+  properties: currency, country, value
+  (added Sun Jan 21 00:59:10 2018, completed on Sun Jan 21 02:21:44 2018, priority high)
+
+- Implement Money constructor
+ (Still to be done an auxiliary function to
+ construct the face string with signs and cents
+ or variants. This function should proccess the
+ JSON also.)
+  (added Sun Jan 21 01:00:44 2018, completed on Sun Jan 21 21:20:52 2018, priority high)
+
+- Test: Class must get and set the properties
+  value, currency and country
+ (not need setters. All is done by constructor or
+ exchange method)
+  (added Sun Jan 21 01:03:00 2018, completed on Sun Jan 21 03:56:06 2018, priority high)
+
+- Implement Money getters and setters
+ (only getters)
+  (added Sun Jan 21 01:03:22 2018, completed on Sun Jan 21 03:56:54 2018, priority high)
+
+- Tests: The method exchange must take the new
+  value searching data from a local JSON file
+ (Had pronlems with JSON file location)
+  (added Sun Jan 21 01:04:00 2018, completed on Sun Jan 21 21:22:18 2018, priority high)
+
+- Implement auxiliar method to read the JSON file
+  returning only the data needed for this
+  exchange
+ (Some memory problem with cJSON lib fixed)
+  (added Sun Jan 21 01:04:17 2018, completed on Mon Jan 22 13:16:56 2018, priority high)
+
+- exchange method creating and returning a new
+  Money object exchanged
+ (Dont need a auc func for face)
+  (added Sun Jan 21 01:04:33 2018, completed on Mon Jan 22 13:17:43 2018, priority high)
+
+- Implement auxiliary function to generate the
+  face string
+ (Dont need func for face generation ...)
+  (added Sun Jan 21 04:01:59 2018, completed on Mon Jan 22 13:17:59 2018, priority high)
+
+- Create a test module ( 001-basicTest.cpp )
+ (From bootstrap)
+  (added Sun Jan 21 00:54:21 2018, completed on Sun Jan 21 01:17:16 2018, priority medium)
+

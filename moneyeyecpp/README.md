@@ -34,6 +34,7 @@ Version 0.0.1 - Must have a class Money implementing the properties: value as in
 Download it from:
 - https://www.currency-iso.org/dam/downloads/lists/list_one.xml
 - http://fixer.io/
+- https://docs.openexchangerates.org/docs/
 
 2 - Implement the class Money so all tests PASS
 2.1 - class constructor
