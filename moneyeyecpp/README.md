@@ -6,7 +6,7 @@ MONEYeYe++
 
 ## VERSION
 
-0.0.1
+0.0.2
 
 ## SINOPSYS
 
@@ -20,6 +20,39 @@ moneyeye --help
 ## DESCRIPTION
 
 Simple study for money and finance functions on TDD Method.
+
+***
+
+Version 0.0.2 - The object of the class Money must be small as possible and withouthard ties with large memory chunks, so all configurations and external resources as configurations, json files, lists, etc, must be done by a Prototype Factory Singleton class: MoneyFactory.
+
+A money object must be instantiated like:
+
+```c++
+
+static MoneyFactory * fr = MoneyFactory::instance();
+const Money * bill = fr->money("USD",700.00);
+
+```
+
+The Money prototype will have a pointer to the MoneyFactory instance, so all convertions and transformations with money will be made by the Factory.
+
+Money must rewrite some arithmetic operators: = + - / * < > == and >> for exchange:
+
+```c++
+
+const Money invoice = bill; // clone bill
+
+invoice = bill * 3; // clone bill and multiply value by 3
+
+invoice >> "BRL";   // exchange to Real
+
+
+```
+
+### Steps
+
+
+***
 
 Version 0.0.1 - Must have a class Money implementing the properties: value as integer, currency symbol, face value with currency symbol as String, country and the method Money::exchange("currency_symbol") returning a new Money object.
 
