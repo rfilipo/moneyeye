@@ -6,3 +6,13 @@
 **acceptance criteria:**
 
 **defifnition of Done:**
+
+***
+
+# Steps
+
+- [ ] Create tests
+
+- [ ] Document code
+
+- [ ] Create class
