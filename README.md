@@ -7,7 +7,7 @@ Simple study for money and finance functions on TDD Method.
 
 - project methodologies and management (scrum, autotools, github)
 - c++ revisions and libraries study (c++ core, boost, boost::test, cJSON)
-- structural and model infra-structure (
+- structural and model infra-structure
 - proof of concept about the work "Financial Numerical Recipes in C++" by Bernt Arne Ødegaard
 http://finance.bi.no/~bernt/gcc_prog/recipes/recipes/recipes.html
 
