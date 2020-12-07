@@ -1,7 +1,7 @@
 /**
- * Project eYe
+ * Project moneyeye
  * @author Monsenhor
- * @version 0.001
+ * @version 0.01
  */
 
 
@@ -11,44 +11,84 @@
 
 #include <string>
 #include <cmath>
-#include <cfenv>
-#include <climits>
-#include <unistd.h>
 #include <sstream>
-#include <fstream>
 #include <iostream>
 #include <iomanip>
-#include "lib/cJSON.c"
+#include <cfenv>
+#include <chrono>
+/*
+#include <climits>
+#include <unistd.h>
+#include <fstream>
+*/
 
-#include "iModel.h"
+//#include "MoneyFactory.h"
 
 using namespace std;
+using chrono::high_resolution_clock;
 
-class Money: public iModel {
+class Money {
 public: 
     Money();
 		Money(string currency, string country, int value);
+		Money(string currency, int value);
+		Money(time_t time, string currency, int value);
 
-    /**
-		 * getters
-		 */
-    string get_currency();
-    string get_country();
-    int    get_value();
-    string get_face();
+    string currency;
+    int    value;
+    string face;
+    string country;
+    time_t  time;
+    high_resolution_clock::time_point hr_time;
+    string st_time;
 
     /**
      * @param currency
      */
     Money* exchange(string currency);
 
-private: 
-    string _currency;
-    int    _value;
-    string _face;
-    string _country;
+    /**
+     * @param currency
+     */
+    double PV(double rate);
 
-    cJSON * json_from ( const char * file );
+
+   /**
+		* overload +
+		*/
+	 Money operator+ (const Money& m);
+	 Money operator+ (const int t);
+
+   /**
+		* overload -
+		*/
+	 Money operator- (const Money& m);
+	 Money operator- (const int t);
+
+   /**
+		* overload *
+		*/
+	 Money operator* (const Money& m);
+	 Money operator* (const int t);
+
+   /**
+		* overload /
+		*/
+	 Money operator/ (const Money& m);
+
+   /**
+		* overload = for assigning integers
+		*/
+	 Money operator= (const int t);
+
+   /**
+		* overload += for assigning integers
+		*/
+	 Money operator+= (const int t);
+
+
+private:
+    //static MoneyFactory * factory;
 };
 
 #endif //_MONEY_H

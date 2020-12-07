@@ -70,10 +70,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/moneyeyecpp
-pkgincludedir = $(includedir)/moneyeyecpp
-pkglibdir = $(libdir)/moneyeyecpp
-pkglibexecdir = $(libexecdir)/moneyeyecpp
+pkgdatadir = $(datadir)/moneyeye
+pkgincludedir = $(includedir)/moneyeye
+pkglibdir = $(libdir)/moneyeye
+pkglibexecdir = $(libexecdir)/moneyeye
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -86,9 +86,9 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = i686-pc-linux-gnu
-host_triplet = i686-pc-linux-gnu
-bin_PROGRAMS = MonEyeyeCpp$(EXEEXT)
+build_triplet = x86_64-pc-linux-gnu
+host_triplet = x86_64-pc-linux-gnu
+bin_PROGRAMS = moneyeye$(EXEEXT)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_gnu_autotest.m4 \
@@ -104,9 +104,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_MonEyeyeCpp_OBJECTS = main.$(OBJEXT)
-MonEyeyeCpp_OBJECTS = $(am_MonEyeyeCpp_OBJECTS)
-MonEyeyeCpp_LDADD = $(LDADD)
+am_moneyeye_OBJECTS = main.$(OBJEXT) Money.$(OBJEXT)
+moneyeye_OBJECTS = $(am_moneyeye_OBJECTS)
+moneyeye_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -136,8 +136,8 @@ AM_V_CXXLD = $(am__v_CXXLD_$(V))
 am__v_CXXLD_ = $(am__v_CXXLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(MonEyeyeCpp_SOURCES)
-DIST_SOURCES = $(MonEyeyeCpp_SOURCES)
+SOURCES = $(moneyeye_SOURCES)
+DIST_SOURCES = $(moneyeye_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -164,16 +164,16 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/config/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing autoconf
-AUTOHEADER = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing autoheader
-AUTOMAKE = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing automake-1.15
+AUTOCONF = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing autoconf
+AUTOHEADER = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing autoheader
+AUTOMAKE = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing automake-1.15
 AWK = gawk
-BOOST_CPPFLAGS = -I/home/filipo/estudos/boost/boost_1_66_0
-BOOST_LDFLAGS = -L/home/filipo/estudos/boost/boost_1_66_0/stage/lib
-BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework
+BOOST_CPPFLAGS = -I/include/boost-0
+BOOST_LDFLAGS = -L/lib64
+BOOST_UNIT_TEST_FRAMEWORK_LIB = 
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -200,14 +200,14 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing makeinfo
+MAKEINFO = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
-PACKAGE = moneyeyecpp
+PACKAGE = moneyeye
 PACKAGE_BUGREPORT = youremail@some.local
-PACKAGE_NAME = MonEyeyeCpp
-PACKAGE_STRING = MonEyeyeCpp 0.1
-PACKAGE_TARNAME = moneyeyecpp
+PACKAGE_NAME = moneyeye
+PACKAGE_STRING = moneyeye 0.1
+PACKAGE_TARNAME = moneyeye
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
@@ -216,10 +216,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 0.1
-abs_builddir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/src
-abs_srcdir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/src
-abs_top_builddir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp
-abs_top_srcdir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp
+abs_builddir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/src
+abs_srcdir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/src
+abs_top_builddir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp
+abs_top_srcdir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -228,9 +228,9 @@ am__quote =
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
 bindir = ${exec_prefix}/bin
-build = i686-pc-linux-gnu
+build = x86_64-pc-linux-gnu
 build_alias = 
-build_cpu = i686
+build_cpu = x86_64
 build_os = linux-gnu
 build_vendor = pc
 builddir = .
@@ -239,15 +239,15 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = i686-pc-linux-gnu
+host = x86_64-pc-linux-gnu
 host_alias = 
-host_cpu = i686
+host_cpu = x86_64
 host_os = linux-gnu
 host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/install-sh
+install_sh = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -269,7 +269,7 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 ACLOCAL_AMFLAGS = -I m4
-MonEyeyeCpp_SOURCES = main.cpp
+moneyeye_SOURCES = main.cpp Money.cpp
 AM_CXXFLAGS = $(BOOST_CPPFLAGS) -std=c++11
 all: all-am
 
@@ -347,9 +347,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-MonEyeyeCpp$(EXEEXT): $(MonEyeyeCpp_OBJECTS) $(MonEyeyeCpp_DEPENDENCIES) $(EXTRA_MonEyeyeCpp_DEPENDENCIES) 
-	@rm -f MonEyeyeCpp$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(MonEyeyeCpp_OBJECTS) $(MonEyeyeCpp_LDADD) $(LIBS)
+moneyeye$(EXEEXT): $(moneyeye_OBJECTS) $(moneyeye_DEPENDENCIES) $(EXTRA_moneyeye_DEPENDENCIES) 
+	@rm -f moneyeye$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(moneyeye_OBJECTS) $(moneyeye_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -357,18 +357,21 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/Money.Po
 include ./$(DEPDIR)/main.Po
 
 .cpp.o:
-	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+	$(am__mv) $$depbase.Tpo $$depbase.Po
 #	$(AM_V_CXX)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ $<
 
 .cpp.obj:
-	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
+	$(am__mv) $$depbase.Tpo $$depbase.Po
 #	$(AM_V_CXX)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`

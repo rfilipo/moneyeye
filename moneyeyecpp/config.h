@@ -2,10 +2,10 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* define if the Boost library is available */
-#define HAVE_BOOST /**/
+/* #undef HAVE_BOOST */
 
 /* define if the Boost::Unit_Test_Framework library is available */
-#define HAVE_BOOST_UNIT_TEST_FRAMEWORK /**/
+/* #undef HAVE_BOOST_UNIT_TEST_FRAMEWORK */
 
 /* Define to 1 if you have the `fesetround' function. */
 /* #undef HAVE_FESETROUND */
@@ -70,19 +70,19 @@
 #define HAVE__BOOL 1
 
 /* Name of package */
-#define PACKAGE "moneyeyecpp"
+#define PACKAGE "moneyeye"
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "youremail@some.local"
 
 /* Define to the full name of this package. */
-#define PACKAGE_NAME "MonEyeyeCpp"
+#define PACKAGE_NAME "moneyeye"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "MonEyeyeCpp 0.1"
+#define PACKAGE_STRING "moneyeye 0.1"
 
 /* Define to the one symbol short name of this package. */
-#define PACKAGE_TARNAME "moneyeyecpp"
+#define PACKAGE_TARNAME "moneyeye"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL ""

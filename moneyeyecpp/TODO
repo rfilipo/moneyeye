@@ -1,75 +1,62 @@
-AC_CHECK_FUNCS([localeconv]) wanted by: src/lib/cJSON.c:242
-AC_CHECK_FUNCS([memset])     wanted by: src/lib/cJSON.c:208
-AC_CHECK_HEADERS([float.h])  wanted by: src/lib/cJSON.c:44
-AC_CHECK_HEADERS([limits.h]) wanted by: src/lib/cJSON.c:45
-AC_CHECK_HEADERS([locale.h]) wanted by: src/lib/cJSON.c:49
-AC_CHECK_HEADERS([stddef.h]) wanted by: src/lib/cJSON.h:36
-AC_CHECK_HEADERS([stdlib.h]) wanted by: src/main.cpp:26
-AC_CHECK_HEADERS([string.h]) wanted by: src/lib/cJSON.c:40
-AC_CHECK_HEADERS([unistd.h]) wanted by: src/main.cpp:24
-AC_CHECK_HEADER_STDBOOL      wanted by: src/lib/cJSON.c:277
-AC_FUNC_MALLOC               wanted by: src/lib/cJSON.c:132
-AC_FUNC_REALLOC              wanted by: src/lib/cJSON.c:140
-AC_FUNC_STRTOD               wanted by: src/lib/cJSON.c:315
-AC_TYPE_SIZE_T               wanted by: src/lib/cJSON.c:67
+- Refactor tests
+ (Change file names, edit Makefiles. Class Money must be
+ created by MoneyFactory.)
+  (added Tue Jan 30 17:25:23 2018, incomplete, priority veryhigh)
 
+  - Create files
+    (added Wed Jan 31 12:16:01 2018, incomplete, priority high)
 
+  - Update configure.ac and Makefiles
+    (added Wed Jan 31 12:16:33 2018, incomplete, priority high)
 
-- Create Money.h and Money.cpp under src
- (From bootstrap)
-  (added Sun Jan 21 00:57:27 2018, completed on Sun Jan 21 01:17:49 2018, priority high)
+  - MoneyFactory must be a singleton
+    (added Wed Jan 31 12:22:33 2018, incomplete, priority high)
 
-- Test for Class existence and instantiation
- (From bootstrap)
-  (added Sun Jan 21 00:57:58 2018, completed on Sun Jan 21 01:18:21 2018, priority high)
+  - Default constructor
+    (added Wed Jan 31 12:23:05 2018, incomplete, priority high)
 
-- Implement the class Money
- (With simple constructor)
-  (added Sun Jan 21 00:58:43 2018, completed on Sun Jan 21 02:18:59 2018, priority high)
+  - constructor with parameters
+    (added Wed Jan 31 12:23:28 2018, incomplete, priority high)
 
-- Test: Money must be instantiated with the
-  properties: currency, country, value
-  (added Sun Jan 21 00:59:10 2018, completed on Sun Jan 21 02:21:44 2018, priority high)
+  - reload symbols
+    (added Wed Jan 31 12:24:13 2018, incomplete, priority high)
 
-- Implement Money constructor
- (Still to be done an auxiliary function to
- construct the face string with signs and cents
- or variants. This function should proccess the
- JSON also.)
-  (added Sun Jan 21 01:00:44 2018, completed on Sun Jan 21 21:20:52 2018, priority high)
+  - reload rates
+    (added Wed Jan 31 12:24:29 2018, incomplete, priority high)
 
-- Test: Class must get and set the properties
-  value, currency and country
- (not need setters. All is done by constructor or
- exchange method)
-  (added Sun Jan 21 01:03:00 2018, completed on Sun Jan 21 03:56:06 2018, priority high)
+  - reload config
+    (added Wed Jan 31 12:24:43 2018, incomplete, priority high)
 
-- Implement Money getters and setters
- (only getters)
-  (added Sun Jan 21 01:03:22 2018, completed on Sun Jan 21 03:56:54 2018, priority high)
+  - Money must be instantiated by MoneyFactory
+    (added Wed Jan 31 12:27:14 2018, incomplete, priority high)
 
-- Tests: The method exchange must take the new
-  value searching data from a local JSON file
- (Had pronlems with JSON file location)
-  (added Sun Jan 21 01:04:00 2018, completed on Sun Jan 21 21:22:18 2018, priority high)
+  - Methods exchange on MoneyFactory and Money
+    (added Wed Jan 31 12:28:08 2018, incomplete, priority high)
 
-- Implement auxiliar method to read the JSON file
-  returning only the data needed for this
-  exchange
- (Some memory problem with cJSON lib fixed)
-  (added Sun Jan 21 01:04:17 2018, completed on Mon Jan 22 13:16:56 2018, priority high)
+  - Money Working operators:  = + - / * < > == and >>
+    for exchange
+    (added Wed Jan 31 12:28:43 2018, incomplete, priority high)
 
-- exchange method creating and returning a new
-  Money object exchanged
- (Dont need a auc func for face)
-  (added Sun Jan 21 01:04:33 2018, completed on Mon Jan 22 13:17:43 2018, priority high)
+- write class MoneyFactory
+  (added Tue Jan 30 17:28:26 2018, incomplete, priority medium)
 
-- Implement auxiliary function to generate the
-  face string
- (Dont need func for face generation ...)
-  (added Sun Jan 21 04:01:59 2018, completed on Mon Jan 22 13:17:59 2018, priority high)
+  - class constructor, Singleton
+    (added Wed Jan 31 12:29:49 2018, incomplete, priority high)
 
-- Create a test module ( 001-basicTest.cpp )
- (From bootstrap)
-  (added Sun Jan 21 00:54:21 2018, completed on Sun Jan 21 01:17:16 2018, priority medium)
+  - Prototype for cloning
+    (added Wed Jan 31 12:30:04 2018, incomplete, priority high)
+
+- rewrite class Money
+ (Money cant be initialized by constructor unless by
+ MoneyFactory)
+  (added Tue Jan 30 17:28:53 2018, incomplete, priority medium)
+
+  - to be thinny and simple
+    (added Wed Jan 31 12:30:45 2018, incomplete, priority high)
+
+  - delegate all hard work to MoneyFactory
+    (added Wed Jan 31 12:30:59 2018, incomplete, priority high)
+
+  - implement operators
+    (added Wed Jan 31 12:31:14 2018, incomplete, priority high)
 

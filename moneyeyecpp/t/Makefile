@@ -69,10 +69,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/moneyeyecpp
-pkgincludedir = $(includedir)/moneyeyecpp
-pkglibdir = $(libdir)/moneyeyecpp
-pkglibexecdir = $(libexecdir)/moneyeyecpp
+pkgdatadir = $(datadir)/moneyeye
+pkgincludedir = $(includedir)/moneyeye
+pkglibdir = $(libdir)/moneyeye
+pkglibexecdir = $(libexecdir)/moneyeye
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -85,10 +85,10 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = i686-pc-linux-gnu
-host_triplet = i686-pc-linux-gnu
-TESTS = basic_test$(EXEEXT)
-check_PROGRAMS = basic_test$(EXEEXT)
+build_triplet = x86_64-pc-linux-gnu
+host_triplet = x86_64-pc-linux-gnu
+TESTS = factory_test$(EXEEXT) money_test$(EXEEXT)
+check_PROGRAMS = factory_test$(EXEEXT) money_test$(EXEEXT)
 subdir = t
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_gnu_autotest.m4 \
@@ -102,9 +102,14 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am_basic_test_OBJECTS = 001-basicTest.$(OBJEXT)
-basic_test_OBJECTS = $(am_basic_test_OBJECTS)
-basic_test_LDADD = $(LDADD)
+am__dirstamp = $(am__leading_dot)dirstamp
+am_factory_test_OBJECTS = 000-FactoryTest.$(OBJEXT) \
+	../src/Money.$(OBJEXT)
+factory_test_OBJECTS = $(am_factory_test_OBJECTS)
+factory_test_LDADD = $(LDADD)
+am_money_test_OBJECTS = 001-MoneyTest.$(OBJEXT) ../src/Money.$(OBJEXT)
+money_test_OBJECTS = $(am_money_test_OBJECTS)
+money_test_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -134,8 +139,8 @@ AM_V_CXXLD = $(am__v_CXXLD_$(V))
 am__v_CXXLD_ = $(am__v_CXXLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(basic_test_SOURCES)
-DIST_SOURCES = $(basic_test_SOURCES)
+SOURCES = $(factory_test_SOURCES) $(money_test_SOURCES)
+DIST_SOURCES = $(factory_test_SOURCES) $(money_test_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -367,16 +372,16 @@ TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/config/depcomp \
 	$(top_srcdir)/config/test-driver
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing autoconf
-AUTOHEADER = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing autoheader
-AUTOMAKE = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing automake-1.15
+AUTOCONF = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing autoconf
+AUTOHEADER = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing autoheader
+AUTOMAKE = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing automake-1.15
 AWK = gawk
-BOOST_CPPFLAGS = -I/home/filipo/estudos/boost/boost_1_66_0
-BOOST_LDFLAGS = -L/home/filipo/estudos/boost/boost_1_66_0/stage/lib
-BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework
+BOOST_CPPFLAGS = -I/include/boost-0
+BOOST_LDFLAGS = -L/lib64
+BOOST_UNIT_TEST_FRAMEWORK_LIB = 
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
@@ -403,14 +408,14 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/missing makeinfo
+MAKEINFO = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
-PACKAGE = moneyeyecpp
+PACKAGE = moneyeye
 PACKAGE_BUGREPORT = youremail@some.local
-PACKAGE_NAME = MonEyeyeCpp
-PACKAGE_STRING = MonEyeyeCpp 0.1
-PACKAGE_TARNAME = moneyeyecpp
+PACKAGE_NAME = moneyeye
+PACKAGE_STRING = moneyeye 0.1
+PACKAGE_TARNAME = moneyeye
 PACKAGE_URL = 
 PACKAGE_VERSION = 0.1
 PATH_SEPARATOR = :
@@ -419,10 +424,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 0.1
-abs_builddir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/t
-abs_srcdir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/t
-abs_top_builddir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp
-abs_top_srcdir = /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp
+abs_builddir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/t
+abs_srcdir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/t
+abs_top_builddir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp
+abs_top_srcdir = /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -431,9 +436,9 @@ am__quote =
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
 bindir = ${exec_prefix}/bin
-build = i686-pc-linux-gnu
+build = x86_64-pc-linux-gnu
 build_alias = 
-build_cpu = i686
+build_cpu = x86_64
 build_os = linux-gnu
 build_vendor = pc
 builddir = .
@@ -442,15 +447,15 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = i686-pc-linux-gnu
+host = x86_64-pc-linux-gnu
 host_alias = 
-host_cpu = i686
+host_cpu = x86_64
 host_os = linux-gnu
 host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/filipo/projetos/kobkob/code/moneyEye/moneyeyecpp/moneyeyecpp/config/install-sh
+install_sh = ${SHELL} /home/filipo/storage/projetos/kobkob/code/moneyEye/moneyeye/moneyeyecpp/config/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -472,8 +477,10 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 ACLOCAL_AMFLAGS = -I m4
-basic_test_SOURCES = 001-basicTest.cpp
-AM_CXXFLAGS = $(BOOST_CPPFLAGS) -std=c++11  -fprofile-arcs -ftest-coverage
+factory_test_SOURCES = 000-FactoryTest.cpp ../src/Money.cpp 
+money_test_SOURCES = 001-MoneyTest.cpp ../src/Money.cpp
+money_test_FLAGS = --show_progress=yes
+AM_CXXFLAGS = $(BOOST_CPPFLAGS) -std=c++11
 all: all-am
 
 .SUFFIXES:
@@ -510,29 +517,46 @@ $(am__aclocal_m4_deps):
 
 clean-checkPROGRAMS:
 	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+../src/$(am__dirstamp):
+	@$(MKDIR_P) ../src
+	@: > ../src/$(am__dirstamp)
+../src/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) ../src/$(DEPDIR)
+	@: > ../src/$(DEPDIR)/$(am__dirstamp)
+../src/Money.$(OBJEXT): ../src/$(am__dirstamp) \
+	../src/$(DEPDIR)/$(am__dirstamp)
 
-basic_test$(EXEEXT): $(basic_test_OBJECTS) $(basic_test_DEPENDENCIES) $(EXTRA_basic_test_DEPENDENCIES) 
-	@rm -f basic_test$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(basic_test_OBJECTS) $(basic_test_LDADD) $(LIBS)
+factory_test$(EXEEXT): $(factory_test_OBJECTS) $(factory_test_DEPENDENCIES) $(EXTRA_factory_test_DEPENDENCIES) 
+	@rm -f factory_test$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(factory_test_OBJECTS) $(factory_test_LDADD) $(LIBS)
+
+money_test$(EXEEXT): $(money_test_OBJECTS) $(money_test_DEPENDENCIES) $(EXTRA_money_test_DEPENDENCIES) 
+	@rm -f money_test$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(money_test_OBJECTS) $(money_test_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
+	-rm -f ../src/*.$(OBJEXT)
 
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/001-basicTest.Po
+include ../src/$(DEPDIR)/Money.Po
+include ./$(DEPDIR)/000-FactoryTest.Po
+include ./$(DEPDIR)/001-MoneyTest.Po
 
 .cpp.o:
-	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
-	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ $< &&\
+	$(am__mv) $$depbase.Tpo $$depbase.Po
 #	$(AM_V_CXX)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ $<
 
 .cpp.obj:
-	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+	$(AM_V_CXX)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.obj$$||'`;\
+	$(CXXCOMPILE) -MT $@ -MD -MP -MF $$depbase.Tpo -c -o $@ `$(CYGPATH_W) '$<'` &&\
+	$(am__mv) $$depbase.Tpo $$depbase.Po
 #	$(AM_V_CXX)source='$<' object='$@' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
@@ -730,9 +754,16 @@ recheck: all $(check_PROGRAMS)
 	        am__force_recheck=am--force-recheck \
 	        TEST_LOGS="$$log_list"; \
 	exit $$?
-basic_test.log: basic_test$(EXEEXT)
-	@p='basic_test$(EXEEXT)'; \
-	b='basic_test'; \
+factory_test.log: factory_test$(EXEEXT)
+	@p='factory_test$(EXEEXT)'; \
+	b='factory_test'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+money_test.log: money_test$(EXEEXT)
+	@p='money_test$(EXEEXT)'; \
+	b='money_test'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -817,6 +848,8 @@ clean-generic:
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-rm -f ../src/$(DEPDIR)/$(am__dirstamp)
+	-rm -f ../src/$(am__dirstamp)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
@@ -826,7 +859,7 @@ clean: clean-am
 clean-am: clean-checkPROGRAMS clean-generic mostlyclean-am
 
 distclean: distclean-am
-	-rm -rf ./$(DEPDIR)
+	-rm -rf ../src/$(DEPDIR) ./$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -872,7 +905,7 @@ install-ps-am:
 installcheck-am:
 
 maintainer-clean: maintainer-clean-am
-	-rm -rf ./$(DEPDIR)
+	-rm -rf ../src/$(DEPDIR) ./$(DEPDIR)
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 
@@ -907,6 +940,7 @@ uninstall-am:
 
 .PRECIOUS: Makefile
 
+#AM_CXXFLAGS = $(BOOST_CPPFLAGS) -std=c++11  -fprofile-arcs -ftest-coverage
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

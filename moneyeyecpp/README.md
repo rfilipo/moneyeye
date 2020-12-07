@@ -2,7 +2,7 @@
 
 ## NAME
 
-MONEYeYe++
+moneyeye++
 
 ## VERSION
 
@@ -23,14 +23,14 @@ Simple study for money and finance functions on TDD Method.
 
 ***
 
-Version 0.0.2 - The object of the class Money must be small as possible and withouthard ties with large memory chunks, so all configurations and external resources as configurations, json files, lists, etc, must be done by a Prototype Factory Singleton class: MoneyFactory.
+Version 0.0.2 - The object of the class Money must be small as possible and without hard ties with large memory chunks, so all configurations and external resources as configurations, json files, lists, etc, must be done by a Prototype Factory Singleton class: MoneyFactory.
 
 A money object must be instantiated like:
 
 ```c++
 
-static MoneyFactory * fr = MoneyFactory::instance();
-const Money * bill = fr->money("USD",700.00);
+static MoneyFactory * mf = MoneyFactory::instance();
+const Money * bill = mf->money("USD",700.00);
 
 ```
 
@@ -50,16 +50,26 @@ invoice >> "BRL";   // exchange to Real
 ```
 
 ### Steps
-1. - Create a test module ( 002-FactoryTest.cpp ) to verify each requirement
-	1. - Class existence and instantiation as Singleton
-	2. - Constructor parameters: config_file, signs_file, rates_file
-	3. - Class must get and set the parameters and controls to reload confs
-	4. - Methods: exchange
+1. - Refactor the test modules to test money and factory ( 000-FactoryTest.cpp, 001-TestMoney.cpp )
+	1. - MoneyFactory Class existence and instantiation
+      1. - Singleton
+	    2. - Constructor parameters: config_file, signs_file, rates_file
+	    3. - Must have methods to reload JSON confs and data files
+      4. - Must have a limit on money objects on memory
+	    5. - Methods for use by money class: exchange
+	2. - Money Class existence and instantiation
+      1. - Instantiated by MoneyFactory, default and with params
+      2. - Method exchange
+      3. - Working operators:  = + - / * < > == and >> for exchange
 
-2. Implement the class MoneyiFactory
+2. Implement the class MoneyFactory
 	1. - class constructor, Singleton
-	2. - Prototype to clone, getters and setters
-	3. - Refactoring class Money to be thinny 
+	2. - Prototype for cloning
+	
+3. - Refactor class Money 
+  1. - to be thinny and simple
+  2. - delegate all hard work to MoneyFactory
+  3. - implement operators
 	
 
 	***

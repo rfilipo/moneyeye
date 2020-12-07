@@ -1,0 +1,18 @@
+# MoneyEye
+
+This work has 6 sections:
+
+. Cpp Library
+. Command line utilities
+. C bindings
+. Node.js bindings
+. Webservices API
+. Mobile and Web applications
+
+## C bindings
+
+Using the wrapper method:
+
+https://www.teddy.ch/c++_library_in_c/
+
+

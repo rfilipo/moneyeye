@@ -1,0 +1,6 @@
+moneyeye is a lib tool to deal with money.
+the header MoneyEye.h points to structures and functions for eye.o
+moneyeye comes from main.c, took a structured text file with users, accounts 
+and stocks definitions with historic rates and a list of transactions to be 
+done
+
